@@ -10,5 +10,5 @@
   {
     "repository": "proprietary_vendor_shift",
     "target_path": "vendor/shift"
-  },
+  }
 ]

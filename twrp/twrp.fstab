@@ -1,11 +1,10 @@
-/boot			emmc	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/boot		flags=slotselect
-/system			ext4	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system	flags=slotselect
-/system_image	emmc	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system	flags=slotselect
-/vendor			ext4	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/vendor	flags=slotselect;backup=1
-/vendor_image	emmc	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/vendor	flags=slotselect
-
-/data			ext4	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata
-
-/nvcfg			emmc	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvcfg		flags=backup=1
-/nvdata			emmc	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvdata	flags=backup=1
-/nvram			emmc	/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvram		flags=backup=1
+#<src>                                                          <mnt_point>       <type>  <mnt_flags and options>                                      <fs_mgr_flags>
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/boot      /boot             emmc    defaults                                                     slotselect
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system    /system                 ext4    defaults                                                           slotselect
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system    /system_image                 emmc    defaults                                                           slotselect
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/vendor    /vendor           ext4    defaults                                                           slotselect,backup=1
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/vendor    /vendor_image           emmc    defaults                                                           slotselect
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata  /data             ext4     defaults                         defaults
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvcfg     /nvcfg      emmc       defaults              backup=1
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvdata    /nvdata      emmc       defaults              backup=1
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvram     /nvram                 emmc   defaults                                                            backup=1
