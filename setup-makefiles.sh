@@ -19,7 +19,9 @@ set -e
 DEVICE_COMMON=mt6797-common
 VENDOR=shift
 
-# Load extractutils and do some sanity checks
+INITIAL_COPYRIGHT_YEAR=2018
+
+# Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
@@ -33,16 +35,12 @@ fi
 . "$HELPER"
 
 # Initialize the helper
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
+setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
 
 # Copyright headers and guards
 write_headers "SHIFT5me SHIFT6m"
 
-# The standard blobs
-write_makefiles "$MY_DIR"/proprietary-files.txt true
+write_makefiles "$MY_DIR"/proprietary-files.txt
 
-# VNDK compat layer
-write_makefiles "$MY_DIR"/proprietary-files-vndk.txt true
-
-# We are done!
+# Finish
 write_footers

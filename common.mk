@@ -13,6 +13,10 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 420dpi
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
+# APEX
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH  := 1080
@@ -34,11 +38,18 @@ PRODUCT_PACKAGES += \
     otapreopt_script
 
 # Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service \
+    bootctrl.mt6797
+
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.mt6797
+    bootctrl.mt6797 \
+    libcutils \
+    libz
 
 # Update engine
 PRODUCT_PACKAGES += \
@@ -76,9 +87,15 @@ PRODUCT_COPY_FILES += \
 
 ####################################################################################################################################################################################
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt \
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf:mtk \
+    $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy_configuration_stub.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_stub.xml \
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
@@ -101,9 +118,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
 
 # HIDL
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/compatibility_matrix.xml:system/compatibility_matrix.xml
-
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0
@@ -176,10 +190,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.usb.mtp.whql.enable=0 \
     ro.sys.usb.storage.type=mtp \
 
+# Vendor properties
+-include $(LOCAL_PATH)/vendor_prop.mk
+
 # VNDK
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vndk/ld.config.26.txt:system/etc/ld.config.26.txt \
-    $(LOCAL_PATH)/vndk/vndk.rc:system/etc/init/vndk.rc
+PRODUCT_PACKAGES += \
+    vndk_package
+
+# VNDK-SP:
+PRODUCT_PACKAGES += \
+    vndk-sp
 
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -189,10 +209,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mediatek.wlan.ctia=0 \
     wifi.tethering.interface=ap0 \
     wifi.direct.interface=p2p0 \
-
-# Remove unwanted packages
-PRODUCT_PACKAGES += \
-    RemovePackages
 
 # call the proprietary setup
 $(call inherit-product, vendor/shift/mt6797-common/mt6797-common-vendor.mk)
