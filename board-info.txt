@@ -1,0 +1,1 @@
+require board=SHIFT5me|SHIFT6m

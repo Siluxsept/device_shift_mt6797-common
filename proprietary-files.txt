@@ -8,8 +8,6 @@ vendor/lib/libaudioprimarydevicehalifclient.so
 vendor/lib/libaudiosetting.so
 vendor/lib/libaudiotoolkit.so
 vendor/lib/libaudio_param_parser-vnd.so
-vendor/lib/libtinycompress.so
-vendor/lib/soundfx/libaudiopreprocessing.so
 vendor/lib64/libaudiocompensationfilter_vendor.so
 vendor/lib64/libaudiocomponentengine_vendor.so
 vendor/lib64/libaudiocustparam_vendor.so
@@ -18,22 +16,12 @@ vendor/lib64/libaudioprimarydevicehalifclient.so
 vendor/lib64/libaudiosetting.so
 vendor/lib64/libaudiotoolkit.so
 vendor/lib64/libaudio_param_parser-vnd.so
-vendor/lib64/libtinycompress.so
-vendor/lib64/soundfx/libaudiopreprocessing.so
 
 # Audio-Hardware
-vendor/lib/hw/audio.primary.default.so
 vendor/lib/hw/audio.primary.mt6797.so
-vendor/lib/hw/audio.r_submix.default.so
 vendor/lib/hw/audio.r_submix.mt6797.so
-vendor/lib/hw/audio.usb.default.so
-vendor/lib/hw/audio_policy.stub.so
-vendor/lib64/hw/audio.primary.default.so
 vendor/lib64/hw/audio.primary.mt6797.so
-vendor/lib64/hw/audio.r_submix.default.so
 vendor/lib64/hw/audio.r_submix.mt6797.so
-vendor/lib64/hw/audio.usb.default.so
-vendor/lib64/hw/audio_policy.stub.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-mediatek
@@ -52,6 +40,10 @@ vendor/lib64/libbluetooth_mtk.so
 vendor/lib64/libbluetooth_mtk_pure.so
 vendor/lib64/libbluetooth_relayer.so
 vendor/lib64/libbt-vendor.so
+
+# Boot Control
+-vendor/lib/hw/bootctrl.mt6797.so
+-vendor/lib64/hw/bootctrl.mt6797.so
 
 # Camera
 vendor/bin/hw/camerahalserver
@@ -142,22 +134,14 @@ vendor/lib64/libSonyIMX230PdafLibrary.so
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine
 vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
 vendor/lib/libwvhidl.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
-vendor/lib/mediadrm/libmockdrmcryptoplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib64/libwvhidl.so
-vendor/lib64/mediadrm/libdrmclearkeyplugin.so
-vendor/lib64/mediadrm/libmockdrmcryptoplugin.so
 vendor/lib64/mediadrm/libwvdrmengine.so
 
 # Display-Hardware
-vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so
-vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/gralloc.mt6797.so
 vendor/lib/hw/hwcomposer.mt6797.so
 vendor/lib/hw/memtrack.mt6797.so
-vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so
-vendor/lib64/hw/gralloc.default.so
 vendor/lib64/hw/gralloc.mt6797.so
 vendor/lib64/hw/hwcomposer.mt6797.so
 vendor/lib64/hw/memtrack.mt6797.so
@@ -207,12 +191,8 @@ vendor/lib64/vendor.mediatek.hardware.gnss@1.1_vendor.so
 # GPS-Hardware
 
 # Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
-vendor/lib/hw/android.hardware.gatekeeper@1.0-impl.so
 vendor/lib/hw/gatekeeper.mt6797.so
 vendor/lib/hw/libSoftGatekeeper.so
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl.so
 vendor/lib64/hw/gatekeeper.mt6797.so
 vendor/lib64/hw/libSoftGatekeeper.so
 
@@ -246,8 +226,6 @@ lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 lib/vendor.mediatek.hardware.videotelephony@1.0.so
 
 # IMS dependencies
-lib64/libion.so
-lib/libion.so
 lib64/libcomutils.so
 lib/libcomutils.so
 lib64/libsignal.so
@@ -262,18 +240,14 @@ bin/kpoc_charger
 etc/init/kpoc_charger.rc
 
 # Keymaster
-vendor/bin/hw/android.hardware.keymaster@3.0-service
 vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.0-service
 vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
-vendor/etc/init/android.hardware.keymaster@3.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc
-vendor/lib/hw/android.hardware.keymaster@3.0-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.0-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0_vendor.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1_vendor.so
-vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.keymaster_attestation@1.0-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
 vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.0_vendor.so
@@ -282,8 +256,6 @@ vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.1_vendor.so
 # Keystore
 vendor/lib/hw/keystore.mt6797.so
 vendor/lib64/hw/keystore.mt6797.so
-vendor/lib64/libkeystore-engine-wifi-hidl.so
-vendor/lib64/libkeystore-wifi-hidl.so
 
 # Listen
 vendor/lib/hw/sound_trigger.primary.mt6797.so
@@ -474,9 +446,7 @@ etc/permissions/privapp-permissions-mediatek.xml
 
 # Power-Hardware
 vendor/bin/hw/power_native_test
-vendor/lib/hw/power.default.so
 vendor/lib/hw/power.mt6797.so
-vendor/lib64/hw/power.default.so
 vendor/lib64/hw/power.mt6797.so
 
 # QMI
@@ -485,9 +455,7 @@ vendor/lib64/hw/power.mt6797.so
 
 # Sensors
 vendor/lib/hw/sensors.mt6797.so
-vendor/lib/libsensorndkbridge.so
 vendor/lib64/hw/sensors.mt6797.so
-vendor/lib64/libsensorndkbridge.so
 
 # Soter
 vendor/thh/soter.raw
@@ -496,7 +464,6 @@ vendor/thh/soter.raw
 bin/thermalindicator
 etc/init/thermalindicator.rc
 -vendor/app/MTKThermalManager/MTKThermalManager.apk
-vendor/bin/hw/android.hardware.thermal@1.0-service
 vendor/bin/thermal
 vendor/bin/thermalloadalgod
 vendor/bin/thermal_manager
@@ -506,13 +473,10 @@ vendor/etc/.tp/.thermal_policy_02
 vendor/etc/.tp/.thermal_policy_03
 vendor/etc/.tp/thermal.conf
 vendor/etc/.tp/thermal.off.conf
-vendor/etc/init/android.hardware.thermal@1.0-service.rc
 vendor/etc/init/init.thermal.rc
 vendor/etc/init/init.thermalloadalgod.rc
 vendor/etc/init/init.thermal_manager.rc
-vendor/lib/hw/android.hardware.thermal@1.0-impl.so
 vendor/lib/libthermalalgo.so
-vendor/lib64/hw/android.hardware.thermal@1.0-impl.so
 
 # Thermal-Hardware
 vendor/lib/hw/thermal.mt6797.so
@@ -521,12 +485,6 @@ vendor/lib64/hw/thermal.mt6797.so
 # Time
 
 # Vibrator
-vendor/bin/hw/android.hardware.vibrator@1.0-service
-vendor/etc/init/android.hardware.vibrator@1.0-service.rc
-vendor/lib/hw/android.hardware.vibrator@1.0-impl.so
-vendor/lib/hw/vibrator.default.so
-vendor/lib64/hw/android.hardware.vibrator@1.0-impl.so
-vendor/lib64/hw/vibrator.default.so
 
 # WiFi
 
@@ -534,7 +492,6 @@ vendor/lib64/hw/vibrator.default.so
 -vendor/app/EmCamera/EmCamera.apk
 -vendor/app/LPPeService/LPPeService.apk
 -vendor/app/MTKLoggerProxy/MTKLoggerProxy.apk
--vendor/app/Music/Music.apk
 -vendor/app/NlpService/NlpService.apk
 -vendor/app/SimRecoveryTestTool/SimRecoveryTestTool.apk
 vendor/bin/aee_core_forwarder
@@ -551,7 +508,6 @@ vendor/bin/epdg_wod
 vendor/bin/flashlessd
 vendor/bin/fuelgauged
 vendor/bin/gsm0710muxd
-vendor/bin/hw/android.hardware.broadcastradio@1.1-service
 vendor/bin/hw/rilproxy
 vendor/bin/hw/vtservice_hidl
 vendor/bin/init_thh
@@ -591,7 +547,6 @@ vendor/bin/wmt_concurrency
 vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
 vendor/bin/wmt_loopback
-vendor/compatibility_matrix.xml
 vendor/data/misc/pdc.txt
 vendor/data/misc/ProjectConfig.mk
 vendor/etc/.tp/.ht120.mtc

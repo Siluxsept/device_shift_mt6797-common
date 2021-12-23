@@ -17,6 +17,8 @@ libnativewindow.so
 libneuralnetworks.so
 libOpenMAXAL.so
 libOpenSLES.so
+libprotobuf-cpp-full.so
+libprotobuf-cpp-lite.so
 libRS.so
 libstdc++.so
 libsync.so
